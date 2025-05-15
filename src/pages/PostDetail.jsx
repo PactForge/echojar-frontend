@@ -33,46 +33,15 @@ const PostDetail = () => {
     fetchComments();
   }, [id]);
 
-  if (!post) return <div className="text-center mt-10">Loading...</div>;
+  if (!post) return <div className="text-center mt-16 text-gray-600">Loading...</div>;
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6 text-center">Post Details</h1>
-      <div className="p-4 bg-white shadow rounded-lg mb-6">
-        <p className="text-gray-800">{post.content}</p>
-        <p className="text-sm text-gray-500 mt-2">
+      <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">Post Details</h1>
+      <div className="p-6 bg-white rounded-xl shadow-md mb-8">
+        <p className="text-gray-800 mb-4">{post.content}</p>
+        <p className="text-sm text-gray-500">
           Posted by {post.userId.username} on {new Date(post.createdAt).toLocaleString()}
         </p>
         <p className="text-sm text-gray-500">
-          Account: {post.userId.isPrivate ? 'Private (Admin only comments)' : 'Public'}
-        </p>
-      </div>
-      <h2 className="text-2xl font-semibold mb-4">Comments</h2>
-      {isLoggedIn && (!post.userId.isPrivate || isAdmin) ? (
-        <CommentForm postId={id} onCommentCreated={fetchComments} />
-      ) : (
-        <p className="text-gray-600 mb-4">
-          {isLoggedIn
-            ? 'Only admins can comment on private posts.'
-            : 'Please login to comment.'}
-        </p>
-      )}
-      <div className="space-y-4">
-        {comments.length === 0 ? (
-          <p className="text-gray-600">No comments yet.</p>
-        ) : (
-          comments.map((comment) => (
-            <div key={comment._id} className="p-4 bg-gray-100 rounded-lg">
-              <p className="text-gray-800">{comment.content}</p>
-              <p className="text-sm text-gray-500 mt-2">
-                Commented by {comment.userId.username} on {new Date(comment.createdAt).toLocaleString()}
-              </p>
-            </div>
-          ))
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default PostDetail;
+          Account: {post.user
