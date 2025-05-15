@@ -39,32 +39,32 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-600 p-4">
+    <nav className="bg-gradient-to-r from-blue-600 to-blue-800 p-4 shadow-lg sticky top-0 z-10">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white text-2xl font-bold">EchoJar</Link>
+        <Link to="/" className="text-white text-3xl font-extrabold tracking-tight">EchoJar</Link>
         <div className="flex items-center space-x-4">
           {user ? (
             <>
-              <span className="text-white">Welcome, {user.username}</span>
+              <span className="text-white font-medium">Hi, {user.username}</span>
               <select
                 value={isPrivate}
                 onChange={handlePrivacyChange}
-                className="p-2 rounded-lg"
+                className="p-2 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-300"
               >
                 <option value={false}>Public</option>
                 <option value={true}>Private</option>
               </select>
               <button
                 onClick={handleLogout}
-                className="text-white bg-red-500 px-3 py-1 rounded hover:bg-red-600"
+                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200"
               >
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="text-white hover:underline">Login</Link>
-              <Link to="/register" className="text-white hover:underline">Register</Link>
+              <Link to="/login" className="text-white hover:text-blue-200 transition duration-200">Login</Link>
+              <Link to="/register" className="text-white hover:text-blue-200 transition duration-200">Register</Link>
             </>
           )}
         </div>
