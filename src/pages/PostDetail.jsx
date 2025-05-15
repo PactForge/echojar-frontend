@@ -45,3 +45,4 @@ const PostDetail = () => {
         </p>
         <p className="text-sm text-gray-500">
           Account: {post.user
+          }
