@@ -44,5 +44,5 @@ const PostDetail = () => {
           Posted by {post.userId.username} on {new Date(post.createdAt).toLocaleString()}
         </p>
         <p className="text-sm text-gray-500">
-          Account: {post.user
-          }
+          Account: {post.user}
+          
