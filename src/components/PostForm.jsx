@@ -22,20 +22,20 @@ const PostForm = ({ onPostCreated }) => {
   };
 
   return (
-    <div className="p-4 bg-white shadow rounded-lg mb-6">
-      {error && <p className="text-red-500 mb-2">{error}</p>}
+    <div className="p-6 bg-white rounded-xl shadow-md mb-8">
+      {error && <p className="text-red-500 mb-4">{error}</p>}
       <form onSubmit={handleSubmit}>
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
           placeholder="What's on your mind?"
-          rows="4"
+          rows="5"
           required
         />
         <button
           type="submit"
-          className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          className="mt-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition duration-200"
         >
           Post Vent
         </button>
