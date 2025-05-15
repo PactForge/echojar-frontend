@@ -22,24 +22,29 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6 text-center">EchoJar - Share Your Thoughts</h1>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">EchoJar</h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Share your thoughts anonymously and connect with others. Post a vent, comment, and express yourself freely.
+        </p>
+      </div>
       {isLoggedIn ? (
         <PostForm onPostCreated={fetchPosts} />
       ) : (
-        <p className="text-center mb-6">
-          <Link to="/login" className="text-blue-500 hover:underline">Login</Link> to post a vent.
+        <p className="text-center mb-8 text-gray-600">
+          <Link to="/login" className="text-blue-500 hover:text-blue-600 font-medium">Login</Link> to post a vent.
         </p>
       )}
-      <div className="space-y-6">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <div key={post._id} className="p-4 bg-white shadow rounded-lg">
-            <p className="text-gray-800">{post.content}</p>
-            <p className="text-sm text-gray-500 mt-2">
+          <div key={post._id} className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-200">
+            <p className="text-gray-800 mb-4">{post.content}</p>
+            <p className="text-sm text-gray-500">
               Posted by {post.userId.username} on {new Date(post.createdAt).toLocaleString()}
             </p>
             <Link
               to={`/post/${post._id}`}
-              className="text-blue-500 hover:underline mt-2 inline-block"
+              className="text-blue-500 hover:text-blue-600 font-medium mt-4 inline-block"
             >
               View Comments
             </Link>
