@@ -14,7 +14,7 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, {
-        as username,
+        as username, 
         email,
         password,
         isPrivate
